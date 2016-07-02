@@ -15,11 +15,16 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <link rel="import" href="../bower_components/app-layout/app-toolbar/app-toolbar.html">
 <link rel="import" href="../bower_components/paper-icon-button/paper-icon-button.html">
 <link rel="import" href="../bower_components/paper-tabs/paper-tabs.html">
-<link rel="import" href="../bower_components/iron-pages/iron-pages.html">
+<link rel="import" href="../bower_components/neon-animation/neon-animation.html">
+<link rel="import" href="../bower_components/neon-animation/neon-animated-pages.html">
 <link rel="import" href="../bower_components/iron-selector/iron-selector.html">
 <link rel="import" href="../bower_components/iron-icons/iron-icons.html">
 <link rel="import" href="../sample-content.html">
 <link rel="import" href="shared-styles.html">
+<link rel="import" href="my-view1.html">
+<link rel="import" href="my-view2.html">
+<link rel="import" href="my-view3.html">
+<link rel="import" href="my-view4.html">
 
 <dom-module id="my-app">
 
@@ -51,8 +56,8 @@ app-header {
       opacity: 1;
     }
 
-    sample-content {
-      padding-top: 112px;
+    neon-animated-pages {
+      margin-top: 112px;
     }
     
     paper-tab {
@@ -65,6 +70,13 @@ app-header {
     }
     
     </style>
+    
+    <app-location route="{{route}}"></app-location>
+    <app-route
+        route="{{route}}"
+        pattern="/:page"
+        data="{{routeData}}"
+        tail="{{subroute}}"></app-route>
 
     <app-header condenses reveals fixed effects="waterfall">
     <app-toolbar>
@@ -74,16 +86,28 @@ app-header {
       <div style="clear:both"></div>
     </app-toolbar>
 
-    <paper-tabs selected="0" primary>
+    <paper-tabs selected="{{selected}}" primary>
       <paper-tab>Our Story</paper-tab>
       <paper-tab>Details</paper-tab>
       <paper-tab>RSVP</paper-tab>
       <paper-tab>Registry</paper-tab>
     </paper-tabs>
   </app-header>
-
-  <sample-content size="100"></sample-content>
-
+  
+  <neon-animated-pages role="main" class="flex" selected="[[selected]]" entry-animation="scale-up-animation" exit-animation="fade-out-animation">
+      <neon-animatable>
+        <my-view1 name="view1"></my-view1>
+      </neon-animatable>
+      <neon-animatable>
+        <my-view2 name="view2"></my-view2>
+      </neon-animatable>
+      <neon-animatable>
+        <my-view3 name="view3"></my-view3>
+      </neon-animatable>
+      <neon-animatable>
+        <my-view4 name="view4"></my-view4>
+      </neon-animatable>
+  </neon-animated-pages>
 
   </template>
 
@@ -99,6 +123,7 @@ app-header {
           reflectToAttribute: true,
           observer: '_pageChanged'
         },
+        selected: { type: Number, value: 0 },
 
       },
 
