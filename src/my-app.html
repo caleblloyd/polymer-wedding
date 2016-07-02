@@ -48,16 +48,16 @@ app-header {
       background-image: url(../images/wilmington-river-header.jpg);
       background-position: center center;
       background-size: 100% auto;
-      opacity: .95;
+      z-index: 2;
     }
     
     app-toolbar {
       font-family: 'Pacifico', cursive;
-      opacity: 1;
     }
 
     neon-animated-pages {
       margin-top: 112px;
+      z-index: 1;
     }
     
     paper-tab {
@@ -78,7 +78,7 @@ app-header {
         data="{{routeData}}"
         tail="{{subroute}}"></app-route>
 
-    <app-header condenses reveals fixed effects="waterfall">
+    <app-header id="appHeader" condenses reveals fixed effects="waterfall">
     <app-toolbar>
       <div title style="float: left">Maggie and Caleb</div>
       <div title style="float:right; text-align:right"><span>11/26/16</span>
@@ -87,8 +87,8 @@ app-header {
     </app-toolbar>
 
     <paper-tabs selected="{{selected}}" primary>
-      <paper-tab>Our Story</paper-tab>
       <paper-tab>Details</paper-tab>
+      <paper-tab>Our Story</paper-tab>
       <paper-tab>RSVP</paper-tab>
       <paper-tab>Registry</paper-tab>
     </paper-tabs>
@@ -123,7 +123,11 @@ app-header {
           reflectToAttribute: true,
           observer: '_pageChanged'
         },
-        selected: { type: Number, value: 0 },
+        selected: {
+          type: Number,
+          value: 0,
+          observer: '_selectChanged'
+        },
 
       },
 
@@ -133,6 +137,10 @@ app-header {
 
       _routePageChanged: function(page) {
         this.page = page || 'view1';
+      },
+      
+      _selectChanged: function(){
+        this.$.appHeader.scroll(0,0);
       },
 
       _pageChanged: function(page) {
