@@ -12,7 +12,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=no">
 
   <title>My App</title>
 
@@ -50,12 +50,13 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   </script>
 
   <link href="https://fonts.googleapis.com/css?family=Open+Sans|Pacifico" rel="stylesheet">
+  <link rel="import" href="/bower_components/iron-flex-layout/iron-flex-layout-classes.html">
   <link rel="import" href="/src/my-app.html">
 
+  <style is="custom-style" include="iron-flex iron-flex-alignment iron-positioning"></style>
   <style>
 
     body {
-      margin: 0;
       font-family: 'Open Sans', sans-serif;
       background-color: #eee;
     }
@@ -63,7 +64,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   </style>
 
 </head>
-<body unresolved>
+<body unresolved class="fullbleed">
 
   <my-app></my-app>
 

@@ -19,6 +19,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <link rel="import" href="../bower_components/neon-animation/neon-animated-pages.html">
 <link rel="import" href="../bower_components/iron-selector/iron-selector.html">
 <link rel="import" href="../bower_components/iron-icons/iron-icons.html">
+<link rel="import" href="../bower_components/iron-flex-layout/iron-flex-layout.html">
 <link rel="import" href="../sample-content.html">
 <link rel="import" href="shared-styles.html">
 <link rel="import" href="my-view1.html">
@@ -36,28 +37,22 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       :host {
         --app-primary-color: #000080;
         --app-secondary-color: black;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
       }
 
-app-header {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 112px;
-      color: #fff;
+    #appHeader {
       background-image: url(../images/wilmington-river-header.jpg);
       background-position: center center;
       background-size: 100% auto;
-      z-index: 2;
+      flex: 0 0 auto;
     }
     
-    app-toolbar {
-      font-family: 'Pacifico', cursive;
-    }
-
-    neon-animated-pages {
-      margin-top: 112px;
-      z-index: 1;
+    #appBody {
+      
+      position: relative;
+      
     }
     
     paper-tab {
@@ -78,36 +73,37 @@ app-header {
         data="{{routeData}}"
         tail="{{subroute}}"></app-route>
 
-    <app-header id="appHeader" condenses reveals fixed effects="waterfall">
-    <app-toolbar>
-      <div title style="float: left">Maggie and Caleb</div>
-      <div title style="float:right; text-align:right"><span>11/26/16</span>
-      <span class="smallhide">&nbsp;&ndash;&nbsp; Wilmington, NC</span></div>
-      <div style="clear:both"></div>
-    </app-toolbar>
-
-    <paper-tabs selected="{{selected}}" primary>
-      <paper-tab>Details</paper-tab>
-      <paper-tab>Our Story</paper-tab>
-      <paper-tab>RSVP</paper-tab>
-      <paper-tab>Registry</paper-tab>
-    </paper-tabs>
-  </app-header>
+    <div id="appHeader">
+      <div title class="fancy" style="padding: 16px; font-size: 20px; color: #FFF;">
+          <div style="float: left;">Maggie and Caleb</div>
+          <div style="float:right; text-align:right;"><span>11/26/16</span>
+          <span class="smallhide">&nbsp;&ndash;&nbsp; Wilmington, NC</span></div>
+          <div style="clear:both"></div>
+      </div>
+      <paper-tabs selected="{{selected}}" primary>
+        <paper-tab>Details</paper-tab>
+        <paper-tab>Our Story</paper-tab>
+        <paper-tab>RSVP</paper-tab>
+        <paper-tab>Registry</paper-tab>
+      </paper-tabs>
+  </div>
   
-  <neon-animated-pages role="main" class="flex" selected="[[selected]]" entry-animation="scale-up-animation" exit-animation="fade-out-animation">
-      <neon-animatable>
-        <my-view1 name="view1"></my-view1>
-      </neon-animatable>
-      <neon-animatable>
-        <my-view2 name="view2"></my-view2>
-      </neon-animatable>
-      <neon-animatable>
-        <my-view3 name="view3"></my-view3>
-      </neon-animatable>
-      <neon-animatable>
-        <my-view4 name="view4"></my-view4>
-      </neon-animatable>
-  </neon-animated-pages>
+  <div id="appBody">
+    <neon-animated-pages role="main" selected="[[selected]]" entry-animation="scale-up-animation" exit-animation="fade-out-animation">
+        <neon-animatable>
+          <my-view1 name="view1"></my-view1>
+        </neon-animatable>
+        <neon-animatable>
+          <my-view2 name="view2"></my-view2>
+        </neon-animatable>
+        <neon-animatable>
+          <my-view3 name="view3"></my-view3>
+        </neon-animatable>
+        <neon-animatable>
+          <my-view4 name="view4"></my-view4>
+        </neon-animatable>
+    </neon-animated-pages>
+  </div>
 
   </template>
 
@@ -140,7 +136,11 @@ app-header {
       },
       
       _selectChanged: function(){
-        this.$.appHeader.scroll(0,0);
+        // if (window.getComputedStyle(this.$.appHeader).transform.includes("-")){
+        //   this.$.appHeader.scroll(0,64);
+        // } else {
+        //   this.$.appHeader.scroll(0,0);
+        // }
       },
 
       _pageChanged: function(page) {
