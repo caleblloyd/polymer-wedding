@@ -9,47 +9,91 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 -->
 
 <link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../bower_components/iron-grid/iron-grid.html">
+<link rel="import" href="shared-styles.html">
 
 <dom-module id="my-view4">
 
   <template>
 
+    <style include="shared-styles"></style>
     <style>
       :host {
         display: block;
       }
-      .card {
-        box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
-        padding: 16px;
-        margin: 24px;
-        border-radius: 5px;
-        background-color: #fff;
-        color: #757575;
-      }
-      .circle {
-        display: inline-block;
-        height: 64px;
-        width: 64px;
-        border-radius: 50%;
-        background: #ddd;
-        line-height: 64px;
-        font-size: 30px;
-        color: #555;
-        text-align: center;
-      }
-      h1 {
-        font-size: 22px;
-        margin: 2px 0;
-        color: #212121;
-      }
     </style>
 
-    <div class="card">
-      <div class="circle">4</div>
-      <h1>View Four</h1>
-      <p>Modus commodo minimum eum te, vero utinam assueverit per eu.</p>
-      <p>Ea duis bonorum nec, falli paulo aliquid ei eum.Has at minim mucius aliquam, est id tempor laoreet.Pro saepe pertinax ei, ad pri animal labores suscipiantur.</p>
-    </div>
+    <h1>We're registered at...</h1>
+
+    <iron-grid>
+      <div class="xs12 s6">
+        <div class="card" style="text-align: center;">
+          <div style="width: 90%;">
+            <div>
+              <a href="http://www.bedbathandbeyond.com/store/giftregistry/view_registry_guest.jsp?registryId=543553733&eventType=Wedding&pwsurl=?mcid=EM_triggeredem_emailregistryplural__allpromos" target="_blank">
+                <img class="center" style="max-height:250px;" src="../images/registry/bed-bath-beyond.png" />
+              </a>
+            </div>
+            <div>
+              <a href="http://www.bedbathandbeyond.com/store/giftregistry/view_registry_guest.jsp?registryId=543553733&eventType=Wedding&pwsurl=?mcid=EM_triggeredem_emailregistryplural__allpromos" target="_blank">
+              Bed Bath &amp; Beyond
+              </a>
+           </div>
+          </div>
+        </div>
+      </div>
+      <div class="xs12 s6">
+        <div class="card" style="text-align: center;">
+          <div style="width: 90%;">
+            <div>
+              <a href="https://secure.williams-sonoma.com/registry/ktf6qvmp2c/registry-list.html?bnrid=3101172&cm_ite=hero_cta" target="_blank">
+                <img class="center" style="max-height:250px;" src="../images/registry/williams-sonoma.png" />
+              </a>
+            </div>
+            <div>
+              <a href="https://secure.williams-sonoma.com/registry/ktf6qvmp2c/registry-list.html?bnrid=3101172&cm_ite=hero_cta" target="_blank">
+              Williams-Sonoma
+              </a>
+           </div>
+          </div>
+        </div>
+      </div>
+    </iron-grid>
+    
+    <iron-grid>
+      <div class="xs12 s6">
+        <div class="card" style="text-align: center;">
+          <div style="width: 90%;">
+            <div>
+              <a href="https://www.amazon.com/wedding/maggie-sullivan-caleb-lloyd-wilmington-november-2016/registry/2MYCUIHVYN8RK" target="_blank">
+                <img class="center" style="max-height:250px;" src="../images/registry/amazon.png" />
+              </a>
+            </div>
+            <div>
+              <a href="https://www.amazon.com/wedding/maggie-sullivan-caleb-lloyd-wilmington-november-2016/registry/2MYCUIHVYN8RK" target="_blank">
+              Amazon
+              </a>
+           </div>
+          </div>
+        </div>
+      </div>
+      <div class="xs12 s6">
+        <div class="card" style="text-align: center;">
+          <div style="width: 90%;">
+            <div>
+              <a href="http://www.target.com/gift-registry/giftgiver?registryId=YR0c65SehsD_kPnyCh0oBg&lnk=copiedLink" target="_blank">
+                <img class="center" style="max-height:250px;" src="../images/registry/target.png" />
+              </a>
+            </div>
+            <div>
+              <a href="http://www.target.com/gift-registry/giftgiver?registryId=YR0c65SehsD_kPnyCh0oBg&lnk=copiedLink" target="_blank">
+              Target
+              </a>
+           </div>
+          </div>
+        </div>
+      </div>
+    </iron-grid>
 
   </template>
 
