@@ -1,9 +1,11 @@
 {
   "entrypoint": "index.html",
-  "shell": "src/my-app.html",
+  "shell": "src/wedding-app.html",
   "fragments": [
-    "src/my-view1.html",
-    "src/my-view2.html",
-    "src/my-view3.html"
+    "src/shared-styles.html",
+    "src/wedding-details.html",
+    "src/wedding-story.html",
+    "src/wedding-rsvp.html",
+    "src/wedding-registry.html"
   ]
 }

@@ -44,7 +44,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       width: 100%;
       height: 112px;
       color: #fff;
-      background-image: url(../images/wilmington-river-header.jpg);
+      background-image: url(../images/header.jpg);
       background-position: center center;
       background-size: 100% auto;
       z-index: 2;
@@ -52,8 +52,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     
     #appBody {
       z-index: 1;
-      margin-top: 112px;
+      margin: 112px auto 0 auto;
       -webkit-transform: translate3d(0,0,0);
+      max-width: 960px;
       min-height: calc(100vh - 112px + 64px)
     }
     
@@ -92,7 +93,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       <div style="clear:both"></div>
     </app-toolbar>
 
-    <paper-tabs selected="{{selected}}" primary>
+    <paper-tabs selected="[[selected]]" primary>
       <paper-tab>
         <a href="/" class="link">Details</a>
       </paper-tab>
@@ -122,6 +123,12 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         <neon-animatable>
           <wedding-registry></wedding-registry>
         </neon-animatable>
+        <neon-animatable>
+          <h1>Page not found</h1>
+          <div class="card">
+            Please try another one from the links above!
+          </div>
+        </neon-animatable>
     </neon-animated-pages>
   </div>
 
@@ -133,7 +140,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       'details': 0,
       'story': 1,
       'rsvp': 2,
-      'registry': 3
+      'registry': 3,
+      'notFound': 4
     }
     
     Polymer({
@@ -174,7 +182,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         if (pageMap[page] !== undefined){
           this.selected = pageMap[page];
         } else {
-          this.selected = 0;
+          this.selected = pageMap['notFound'];
         }
       }
 
