@@ -72,7 +72,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       text-decoration: none;
     }
     
-    paper-tab:not(:first-child) {
+    .divider {
       border-left: 2px solid rgba(255, 255, 141, .3);
     }
     
@@ -94,16 +94,16 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     </app-toolbar>
 
     <paper-tabs selected="[[selected]]" primary>
-      <paper-tab>
+      <paper-tab link>
         <a href="/" class="link">Details</a>
       </paper-tab>
-      <paper-tab link>
+      <paper-tab link class="divider">
         <a href="/story" class="link">Our Story</a>
       </paper-tab>
-      <paper-tab>
+      <paper-tab link class="divider">
         <a href="/rsvp" class="link">RSVP</a>
       </paper-tab>
-      <paper-tab>
+      <paper-tab link class="divider">
         <a href="/registry" class="link">Registry</a>
       </paper-tab>
     </paper-tabs>
