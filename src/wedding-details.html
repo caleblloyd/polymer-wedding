@@ -12,7 +12,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <link rel="import" href="../bower_components/iron-grid/iron-grid.html">
 <link rel="import" href="shared-styles.html">
 
-<dom-module id="my-view1">
+<dom-module id="wedding-details">
 
   <template>
     
@@ -27,7 +27,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       <h2>The Wedding</h2>
       <div>
         <iron-grid>
-          <div class="s12 m6">
+          <div class="xs12 s6">
             <p style="text-align: left">
               Please join us for the Ceremony and Reception:
             </p>
@@ -46,7 +46,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
               <li><a href="https://www.google.com/maps/place/Bakery+105/@34.2328605,-77.9506265,17z/data=!3m1!4b1!4m5!3m4!1s0x89aa1fc87f2070c1:0x1178fa84a314f8c6!8m2!3d34.2328605!4d-77.9484378" target="_blank">Google Map</a></li>
             </ul>
           </div>
-          <div class="s12 m6">
+          <div class="xs12 s6">
              <img class="center" src="../images/venue.jpg" style="max-height: 250px;" />
           </div>
       </iron-grid>
@@ -57,10 +57,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       <h2>Accomodations</h2>
       <div>
         <iron-grid>
-          <div class="s12 m6">
+          <div class="xs12 s6">
               <img class="center" src="../images/hotel.jpg" style="max-height: 250px;" />
             </div>
-            <div class="s12 m6">
+            <div class="xs12 s6">
               <p style="text-align: center">
                 <strong><a href=" http://www3.hilton.com/en/hotels/north-carolina/hilton-wilmington-riverside-ILMNCHF/index.html" target="_blank">Hilton Wilmington Riverside</a></strong><br />
                 301 N Water St<br />
@@ -84,7 +84,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
     Polymer({
 
-      is: 'my-view1'
+      is: 'wedding-details'
 
     });
 

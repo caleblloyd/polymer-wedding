@@ -17,17 +17,13 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <link rel="import" href="../bower_components/paper-tabs/paper-tabs.html">
 <link rel="import" href="../bower_components/neon-animation/neon-animation.html">
 <link rel="import" href="../bower_components/neon-animation/neon-animated-pages.html">
-<link rel="import" href="../bower_components/iron-selector/iron-selector.html">
-<link rel="import" href="../bower_components/iron-icons/iron-icons.html">
-<link rel="import" href="../bower_components/iron-flex-layout/iron-flex-layout.html">
-<link rel="import" href="../sample-content.html">
 <link rel="import" href="shared-styles.html">
-<link rel="import" href="my-view1.html">
-<link rel="import" href="my-view2.html">
-<link rel="import" href="my-view3.html">
-<link rel="import" href="my-view4.html">
+<link rel="import" href="wedding-details.html">
+<link rel="import" href="wedding-story.html">
+<link rel="import" href="wedding-rsvp.html">
+<link rel="import" href="wedding-registry.html">
 
-<dom-module id="my-app">
+<dom-module id="wedding-app">
 
   <template>
 
@@ -67,6 +63,14 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       font-weight: bold;
     }
     
+    .link {
+      @apply(--layout-horizontal);
+      @apply(--layout-center-center);
+      color: #FFFF8D;
+      font-weight: bold;
+      text-decoration: none;
+    }
+    
     paper-tab:not(:first-child) {
       border-left: 2px solid rgba(255, 255, 141, .3);
     }
@@ -89,26 +93,34 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     </app-toolbar>
 
     <paper-tabs selected="{{selected}}" primary>
-      <paper-tab>Details</paper-tab>
-      <paper-tab>Our Story</paper-tab>
-      <paper-tab>RSVP</paper-tab>
-      <paper-tab>Registry</paper-tab>
+      <paper-tab>
+        <a href="/" class="link">Details</a>
+      </paper-tab>
+      <paper-tab link>
+        <a href="/story" class="link">Our Story</a>
+      </paper-tab>
+      <paper-tab>
+        <a href="/rsvp" class="link">RSVP</a>
+      </paper-tab>
+      <paper-tab>
+        <a href="/registry" class="link">Registry</a>
+      </paper-tab>
     </paper-tabs>
   </app-header>
   
   <div id="appBody">
     <neon-animated-pages role="main" selected="[[selected]]" entry-animation="scale-up-animation" exit-animation="fade-out-animation">
         <neon-animatable>
-          <my-view1 name="view1"></my-view1>
+          <wedding-details></wedding-details>
         </neon-animatable>
         <neon-animatable>
-          <my-view2 name="view2"></my-view2>
+          <wedding-story></wedding-story>
         </neon-animatable>
         <neon-animatable>
-          <my-view3 name="view3"></my-view3>
+          <wedding-rsvp></wedding-rsvp>
         </neon-animatable>
         <neon-animatable>
-          <my-view4 name="view4"></my-view4>
+          <wedding-registry></wedding-registry>
         </neon-animatable>
     </neon-animated-pages>
   </div>
@@ -116,9 +128,17 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   </template>
 
   <script>
+    
+    var pageMap = {
+      'details': 0,
+      'story': 1,
+      'rsvp': 2,
+      'registry': 3
+    }
+    
     Polymer({
 
-      is: 'my-app',
+      is: 'wedding-app',
 
       properties: {
 
@@ -129,10 +149,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         },
         selected: {
           type: Number,
-          value: 2,
+          value: -1,
           observer: '_selectChanged'
         },
-
       },
 
       observers: [
@@ -140,7 +159,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       ],
 
       _routePageChanged: function(page) {
-        this.page = page || 'view1';
+        this.page = page || 'details';
       },
       
       _selectChanged: function(){
@@ -152,9 +171,11 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       },
 
       _pageChanged: function(page) {
-        // load page import on demand.
-        this.importHref(
-          this.resolveUrl('my-' + page + '.html'), null, null, true);
+        if (pageMap[page] !== undefined){
+          this.selected = pageMap[page];
+        } else {
+          this.selected = 0;
+        }
       }
 
     });

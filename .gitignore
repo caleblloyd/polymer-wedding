@@ -1,4 +1,6 @@
-bower_components
-dist
-node_modules
-build
+/bower_components
+/dist
+/node_modules
+/build
+/stage
+/publish.sh
