@@ -2,6 +2,14 @@
 
 I wrote this web application using Polymer with the goal of making a beautiul, functional, and mobile-friendly personal wedding website.  I hope that others find this useful in learning to use Polymer and building their own personalized wedding websites!
 
+Some features of the app:
+- Condensing Header
+- Animations between pages
+- HTML5 PushState Routing
+- Offline Caching via Service Worker
+
+Thanks to the Polymer team for all of their hard work and the excellent polymer-cli.  And thanks to Maggie for saying yes!
+
 ### Live Demo
 
 https://maggieandcaleb.com
