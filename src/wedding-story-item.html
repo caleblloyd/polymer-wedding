@@ -24,27 +24,35 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       }
       
       app-box {
-        height: 720px;
-        max-height: 70vw;
+        height: 700px;
+        max-height: 72vw;
         max-width: 768px;
         margin: 0 auto;
       }
       
       article {
-        padding: 5px 15px 35px 15px;
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 15px 0 20px 0;
+      }
+      
+      h3 {
+        text-align: center;
+        margin-top: 0;
+        margin-bottom: 10px;
       }
     </style>
   
   <section>
-    <app-box effects="parallax-background">
-      <img background src="[[imgSrc]]" style="width:100%;" />
-    </app-box>
     <article>
       <h3>[[sectionTitle]]</h3>
       <div>
         <content></content>
       </div>
     </article>
+    <app-box effects="parallax-background">
+      <img background src="[[imgSrc]]" style="width:100%;" />
+    </app-box>
   </section>
 
 
