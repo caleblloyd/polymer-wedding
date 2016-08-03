@@ -25,168 +25,167 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
 <dom-module id="wedding-app">
 
-  <template>
+    <template>
 
-    <style include="shared-styles"></style>
-    <style>
+        <style include="shared-styles"></style>
+        <style>
 
-      :host {
-        --app-primary-color: #000080;
-        --app-secondary-color: black;
-        display: block;
-      }
+            :host {
+                --app-primary-color: #000080;
+                --app-secondary-color: black;
+                display: block;
+            }
 
-    
-    app-header {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 112px;
-      color: #fff;
-      background-image: url(../images/header.jpg);
-      background-position: center center;
-      background-size: 100% auto;
-      z-index: 2;
-    }
-    
-    #appBody {
-      z-index: 1;
-      margin: 112px auto 0 auto;
-      -webkit-transform: translate3d(0,0,0);
-      max-width: 960px;
-      min-height: calc(100vh - 112px + 64px)
-    }
-    
-    
-    paper-tab {
-      color: #FFFF8D;
-      font-weight: bold;
-    }
-    
-    .link {
-      @apply(--layout-horizontal);
-      @apply(--layout-center-center);
-      color: #FFFF8D;
-      font-weight: bold;
-      text-decoration: none;
-    }
-    
-    .divider {
-      border-left: 2px solid rgba(255, 255, 141, .3);
-    }
-    
-    </style>
-    
-    <app-location route="{{route}}"></app-location>
-    <app-route
-        route="{{route}}"
-        pattern="/:page"
-        data="{{routeData}}"
-        tail="{{subroute}}"></app-route>
+            app-header {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 112px;
+                color: #fff;
+                background-image: url(../images/header.jpg);
+                background-position: center center;
+                background-size: 100% auto;
+                z-index: 2;
+            }
 
-   <app-header id="appHeader" condenses fixed effects="waterfall">
-    <app-toolbar class="fancy">
-      <div title style="float: left">Maggie and Caleb</div>
-      <div title style="float:right; text-align:right"><span>11/26/16</span>
-      <span class="smallhide">&nbsp;&ndash;&nbsp; Wilmington, NC</span></div>
-      <div style="clear:both"></div>
-    </app-toolbar>
+            #appBody {
+                z-index: 1;
+                margin: 112px auto 0 auto;
+                -webkit-transform: translate3d(0, 0, 0);
+                max-width: 960px;
+                min-height: calc(100vh - 112px + 64px)
+            }
 
-    <paper-tabs selected="[[selected]]" primary>
-      <paper-tab link>
-        <a href="/" class="link">Details</a>
-      </paper-tab>
-      <paper-tab link class="divider">
-        <a href="/story" class="link">Our Story</a>
-      </paper-tab>
-      <paper-tab link class="divider">
-        <a href="/rsvp" class="link">RSVP</a>
-      </paper-tab>
-      <paper-tab link class="divider">
-        <a href="/registry" class="link">Registry</a>
-      </paper-tab>
-    </paper-tabs>
-  </app-header>
-  
-  <div id="appBody">
-    <neon-animated-pages role="main" selected="[[selected]]" entry-animation="scale-up-animation" exit-animation="fade-out-animation">
-        <neon-animatable>
-          <wedding-details></wedding-details>
-        </neon-animatable>
-        <neon-animatable>
-          <wedding-story></wedding-story>
-        </neon-animatable>
-        <neon-animatable>
-          <wedding-rsvp></wedding-rsvp>
-        </neon-animatable>
-        <neon-animatable>
-          <wedding-registry></wedding-registry>
-        </neon-animatable>
-        <neon-animatable>
-          <h1>Page not found</h1>
-          <div class="card">
-            Please try another one from the links above!
-          </div>
-        </neon-animatable>
-    </neon-animated-pages>
-  </div>
+            paper-tab {
+                color: #FFFF8D;
+                font-weight: bold;
+            }
 
-  </template>
+            .link {
+                @apply(--layout-horizontal);
+                @apply(--layout-center-center);
+                color: #FFFF8D;
+                font-weight: bold;
+                text-decoration: none;
+            }
 
-  <script>
-    
-    var pageMap = {
-      'details': 0,
-      'story': 1,
-      'rsvp': 2,
-      'registry': 3,
-      'notFound': 4
-    }
-    
-    Polymer({
+            .divider {
+                border-left: 2px solid rgba(255, 255, 141, .3);
+            }
 
-      is: 'wedding-app',
+        </style>
 
-      properties: {
+        <app-location route="{{route}}"></app-location>
+        <app-route
+                route="{{route}}"
+                pattern="/:page"
+                data="{{routeData}}"
+                tail="{{subroute}}"></app-route>
 
-        page: {
-          type: String,
-          reflectToAttribute: true,
-          observer: '_pageChanged'
-        },
-        selected: {
-          type: Number,
-          value: -1,
-          observer: '_selectChanged'
-        },
-      },
+        <app-header id="appHeader" condenses fixed effects="waterfall">
+            <app-toolbar class="fancy">
+                <div title style="float: left">Maggie and Caleb</div>
+                <div title style="float:right; text-align:right"><span>11/26/16</span>
+                    <span class="smallhide">&nbsp;&ndash;&nbsp; Wilmington, NC</span></div>
+                <div style="clear:both"></div>
+            </app-toolbar>
 
-      observers: [
-        '_routePageChanged(routeData.page)'
-      ],
+            <paper-tabs selected="[[selected]]" primary>
+                <paper-tab link>
+                    <a href="/" class="link">Details</a>
+                </paper-tab>
+                <paper-tab link class="divider">
+                    <a href="/story" class="link">Our Story</a>
+                </paper-tab>
+                <paper-tab link class="divider">
+                    <a href="/rsvp" class="link">RSVP</a>
+                </paper-tab>
+                <paper-tab link class="divider">
+                    <a href="/registry" class="link">Registry</a>
+                </paper-tab>
+            </paper-tabs>
+        </app-header>
 
-      _routePageChanged: function(page) {
-        this.page = page || 'details';
-      },
-      
-      _selectChanged: function(){
-        if (window.getComputedStyle(this.$.appHeader).transform.includes("-")){
-          this.$.appHeader.scroll(0,64);
-        } else {
-          this.$.appHeader.scroll(0,0);
+        <div id="appBody">
+            <neon-animated-pages role="main" selected="[[selected]]" entry-animation="scale-up-animation"
+                                 exit-animation="fade-out-animation">
+                <neon-animatable>
+                    <wedding-details></wedding-details>
+                </neon-animatable>
+                <neon-animatable>
+                    <wedding-story></wedding-story>
+                </neon-animatable>
+                <neon-animatable>
+                    <wedding-rsvp></wedding-rsvp>
+                </neon-animatable>
+                <neon-animatable>
+                    <wedding-registry></wedding-registry>
+                </neon-animatable>
+                <neon-animatable>
+                    <h1>Page not found</h1>
+                    <div class="card">
+                        Please try another one from the links above!
+                    </div>
+                </neon-animatable>
+            </neon-animated-pages>
+        </div>
+
+    </template>
+
+    <script>
+
+        var pageMap = {
+            'details': 0,
+            'story': 1,
+            'rsvp': 2,
+            'registry': 3,
+            'notFound': 4
         }
-      },
 
-      _pageChanged: function(page) {
-        if (pageMap[page] !== undefined){
-          this.selected = pageMap[page];
-        } else {
-          this.selected = pageMap['notFound'];
-        }
-      }
+        Polymer({
 
-    });
-  </script>
+            is: 'wedding-app',
+
+            properties: {
+
+                page: {
+                    type: String,
+                    reflectToAttribute: true,
+                    observer: '_pageChanged'
+                },
+                selected: {
+                    type: Number,
+                    value: -1,
+                    observer: '_selectChanged'
+                },
+            },
+
+            observers: [
+                '_routePageChanged(routeData.page)'
+            ],
+
+            _routePageChanged: function (page) {
+                this.page = page || 'details';
+            },
+
+            _selectChanged: function () {
+                if (window.getComputedStyle(this.$.appHeader).transform.includes("-")) {
+                    this.$.appHeader.scroll(0, 64);
+                } else {
+                    this.$.appHeader.scroll(0, 0);
+                }
+            },
+
+            _pageChanged: function (page) {
+                if (pageMap[page] !== undefined) {
+                    this.selected = pageMap[page];
+                } else {
+                    this.selected = pageMap['notFound'];
+                }
+            }
+
+        });
+    </script>
 
 </dom-module>

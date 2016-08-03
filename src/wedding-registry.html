@@ -15,41 +15,45 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
 <dom-module id="wedding-registry">
 
-  <template>
+    <template>
 
-    <style include="shared-styles"></style>
-    <style>
-      :host {
-        display: block;
-      }
-    </style>
+        <style include="shared-styles"></style>
+        <style>
+            :host {
+                display: block;
+            }
+        </style>
 
-    <h1>We're registered at...</h1>
+        <h1>We're registered at...</h1>
 
-    <iron-grid>
-      <div class="xs12 s6 m6 l6 xl6">
-        <wedding-registry-item name="Bed Bath &amp; Beyond" img-src="../images/registry/bed-bath-beyond.png" href="http://www.bedbathandbeyond.com/store/giftregistry/view_registry_guest.jsp?registryId=543553733&eventType=Wedding&pwsurl=?mcid=EM_triggeredem_emailregistryplural__allpromos"></wedding-registry-item>
-      </div>
-      <div class="xs12 s6 m6 l6 xl6">
-        <wedding-registry-item name="Williams-Sonoma" img-src="../images/registry/williams-sonoma.png" href="https://secure.williams-sonoma.com/registry/ktf6qvmp2c/registry-list.html?bnrid=3101172&cm_ite=hero_cta"></wedding-registry-item>
-      </div>
-    </iron-grid>
-    
-    <iron-grid>
-      <div class="xs12 s6 m6 l6 xl6">
-        <wedding-registry-item name="Amazon" img-src="../images/registry/amazon.png" href="https://www.amazon.com/wedding/maggie-sullivan-caleb-lloyd-wilmington-november-2016/registry/2MYCUIHVYN8RK"></wedding-registry-item>
-      </div>
-      <div class="xs12 s6 m6 l6 xl6">
-        <wedding-registry-item name="Target" img-src="../images/registry/target.png" href="https://www-secure.target.com/gift-registry/giftgiver?registryId=YR0c65SehsD_kPnyCh0oBg&lnk=copiedLink"></wedding-registry-item>
-      </div>
-    </iron-grid>
+        <iron-grid>
+            <div class="xs12 s6 m6 l6 xl6">
+                <wedding-registry-item name="Bed Bath &amp; Beyond" img-src="../images/registry/bed-bath-beyond.png"
+                                       href="http://www.bedbathandbeyond.com/store/giftregistry/view_registry_guest.jsp?registryId=543553733&eventType=Wedding&pwsurl=?mcid=EM_triggeredem_emailregistryplural__allpromos"></wedding-registry-item>
+            </div>
+            <div class="xs12 s6 m6 l6 xl6">
+                <wedding-registry-item name="Williams-Sonoma" img-src="../images/registry/williams-sonoma.png"
+                                       href="https://secure.williams-sonoma.com/registry/ktf6qvmp2c/registry-list.html?bnrid=3101172&cm_ite=hero_cta"></wedding-registry-item>
+            </div>
+        </iron-grid>
 
-  </template>
+        <iron-grid>
+            <div class="xs12 s6 m6 l6 xl6">
+                <wedding-registry-item name="Amazon" img-src="../images/registry/amazon.png"
+                                       href="https://www.amazon.com/wedding/maggie-sullivan-caleb-lloyd-wilmington-november-2016/registry/2MYCUIHVYN8RK"></wedding-registry-item>
+            </div>
+            <div class="xs12 s6 m6 l6 xl6">
+                <wedding-registry-item name="Target" img-src="../images/registry/target.png"
+                                       href="https://www-secure.target.com/gift-registry/giftgiver?registryId=YR0c65SehsD_kPnyCh0oBg&lnk=copiedLink"></wedding-registry-item>
+            </div>
+        </iron-grid>
 
-  <script>
-    Polymer({
-      is: 'wedding-registry'
-    });
-  </script>
+    </template>
+
+    <script>
+        Polymer({
+            is: 'wedding-registry'
+        });
+    </script>
 
 </dom-module>

@@ -13,48 +13,48 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
 <dom-module id="wedding-registry-item">
 
-  <template>
+    <template>
 
-    <style include="shared-styles"></style>
-    <style>
-      :host {
-        display: block;
-      }
-    </style>
-    
-    <div class="card" style="text-align: center;">
-        <div>
-          <a href="[[href]]" target="_blank">
-            <img class="center" style="max-height:250px;" src="[[imgSrc]]" alt="[[name]]" />
-          </a>
+        <style include="shared-styles"></style>
+        <style>
+            :host {
+                display: block;
+            }
+        </style>
+
+        <div class="card" style="text-align: center;">
+            <div>
+                <a href="[[href]]" target="_blank">
+                    <img class="center" style="max-height:250px;" src="[[imgSrc]]" alt="[[name]]"/>
+                </a>
+            </div>
+            <div>
+                <a href="[[href]]" target="_blank">
+                    [[name]]
+                </a>
+            </div>
         </div>
-        <div>
-          <a href="[[href]]" target="_blank">
-            [[name]]
-          </a>
-      </div>
-    </div>
 
-  </template>
+    </template>
 
-  <script>
-    Polymer({
-      is: 'wedding-registry-item',
-      properties: {
-        href: {
-          type: String,
-          value: "",
-        },
-        imgSrc: {
-          type: String,
-          value: "",
-        },
-        name: {
-          type: String,
-          value: "",
-        }
-      },
-    });
-  </script>
+    <script>
+        Polymer({
+            is: 'wedding-registry-item',
+            properties: {
+                href: {
+                    type: String,
+                    value: "",
+                },
+                imgSrc: {
+                    type: String,
+                    value: "",
+                },
+                name: {
+                    type: String,
+                    value: "",
+                }
+            },
+        });
+    </script>
 
 </dom-module>

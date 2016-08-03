@@ -15,68 +15,68 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
 <dom-module id="wedding-story-item">
 
-  <template>
+    <template>
 
-    <style include="shared-styles"></style>
-    <style>
-      :host {
-        display: block;
-      }
-      
-      app-box {
-        height: 700px;
-        max-height: 72vw;
-        max-width: 768px;
-        margin: 0 auto;
-      }
-      
-      article {
-        max-width: 800px;
-        margin: 0 auto;
-        padding: 15px 0 20px 0;
-      }
-      
-      h3 {
-        text-align: center;
-        margin-top: 0;
-        margin-bottom: 8px;
-      }
-    </style>
-  
-  <section>
-    <article>
-      <h3>[[sectionTitle]]</h3>
-      <div>
-        <content></content>
-      </div>
-    </article>
-    <app-box effects="parallax-background">
-      <img background src="[[imgSrc]]" style="width:100%;" />
-    </app-box>
-  </section>
+        <style include="shared-styles"></style>
+        <style>
+            :host {
+                display: block;
+            }
+
+            app-box {
+                height: 700px;
+                max-height: 72vw;
+                max-width: 768px;
+                margin: 0 auto;
+            }
+
+            article {
+                max-width: 800px;
+                margin: 0 auto;
+                padding: 15px 0 20px 0;
+            }
+
+            h3 {
+                text-align: center;
+                margin-top: 0;
+                margin-bottom: 8px;
+            }
+        </style>
+
+        <section>
+            <article>
+                <h3>[[sectionTitle]]</h3>
+                <div>
+                    <content></content>
+                </div>
+            </article>
+            <app-box effects="parallax-background">
+                <img background src="[[imgSrc]]" style="width:100%;"/>
+            </app-box>
+        </section>
 
 
-  </template>
+    </template>
 
-  <script>
+    <script>
 
-    Polymer({
+        Polymer({
 
-      is: 'wedding-story-item',
-      
-      properties: {
-        imgSrc: {
-          type: String,
-          value: "",
-        },
-        sectionTitle: {
-          type: String,
-          value: ""
-        }
-      },
+            is: 'wedding-story-item',
 
-    });
+            properties: {
+                imgSrc: {
+                    type: String,
+                    value: "",
+                },
+                sectionTitle: {
+                    type: String,
+                    value: ""
+                }
+            },
 
-  </script>
+        });
+
+    </script>
 
 </dom-module>
