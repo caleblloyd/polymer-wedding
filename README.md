@@ -12,7 +12,7 @@ Thanks to the Polymer team for all of their hard work and the excellent polymer-
 
 ### Live Demo
 
-https://maggieandcaleb.com
+https://wedding.caleblloyd.com
 
 ### Setup
 
